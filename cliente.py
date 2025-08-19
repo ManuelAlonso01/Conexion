@@ -2,7 +2,7 @@ import socket
 
 # Crear socket del cliente
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(("192.168.1.56", 5000))
+client_socket.connect(("IP DEL SERVIDOR", "PUERTO DEL SERVIDOR"))
 print("Conectado al servidor")
 
 # --- LOGIN ---
@@ -33,5 +33,6 @@ while True:
     print("Salida del servidor:\n", salida)
 
 client_socket.close()
+
 
 
