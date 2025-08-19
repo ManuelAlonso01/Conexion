@@ -28,11 +28,10 @@ while True:
         print("Conexión cerrada")
         break
     salida = client_socket.recv(4096).decode()
-    if salida == "":
-        salida = "Null"
-    print("Salida del servidor:\n", salida)
+    print(salida)
 
 client_socket.close()
+
 
 
 
