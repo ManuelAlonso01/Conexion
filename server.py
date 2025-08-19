@@ -41,13 +41,14 @@ if autenticado:
             client_socket.close()
             break
         resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
-        salida = resultado.stdout + resultado.stderr
+        salida = "Server: " + resultado.stdout + resultado.stderr
         client_socket.send(salida.encode())  # enviar resultado de vuelta
 else:
     client_socket.send(b"ERROR: Demasiados intentos. Conexion cerrada.") 
 # Cerrar conexión
 client_socket.close()
 server_socket.close()
+
 
 
 
