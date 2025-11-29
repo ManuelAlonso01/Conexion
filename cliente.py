@@ -1,37 +1,21 @@
 import socket
 
-# Crear socket del cliente
+# 1️⃣ Crear socket y conectar
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-#Ejemplo: client_socket.connect(("111.111.111.111", 5000))
-client_socket.connect(("IP DEL SERVER", PUERTO))
+#Ejemplo: client_socket.connect(("255.255.255.255", 5000))
+client_socket.connect(("IP SERVER", PUERTO))  # la misma IP y puerto del servidor
 print("Conectado al servidor")
 
-# --- LOGIN ---
-while True:
-    password = input("Contraseña: ")
-    client_socket.send(password.encode())
-    respuesta = client_socket.recv(1024).decode()
-    print("Servidor:", respuesta)
-
-    if "Acceso concedido" in respuesta:
-        print("Login exitoso")
-        break
-    elif "Demasiados intentos" in respuesta:
-        print("Se agotaron los intentos, cerrando conexión...")
-        client_socket.close()
-        exit()
-
-# --- SHELL REMOTA ---
+# 2️⃣ Bucle de envío de comandos
 while True:
     comando = input("Comando: ")
-    client_socket.send(comando.encode())
     if comando.lower() == "exit":
-        print("Conexión cerrada")
+        client_socket.send(comando.encode())
         break
-    salida = client_socket.recv(4096).decode()
+    client_socket.send(comando.encode())  # enviar comando
+    salida = client_socket.recv(4096).decode()  # recibir respuesta
     print(salida)
 
+# 3️⃣ Cerrar conexión
 client_socket.close()
-
-
