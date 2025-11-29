@@ -6,6 +6,7 @@ import json
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+#Ejemplo: server_socket.bind(("111.111.111.111", 5000))
 server_socket.bind(("TU IP", "ELEGIR PUERTO")) # Puerto recomendado: 5000
 
 server_socket.listen(1)
@@ -48,6 +49,7 @@ else:
 # Cerrar conexión
 client_socket.close()
 server_socket.close()
+
 
 
 
