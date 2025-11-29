@@ -3,7 +3,8 @@ import subprocess
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server_socket.bind(("192.168.1.56", 5000))
+#Ejemplo: server_socket.bind(("255.255.255.255", 5000))
+server_socket.bind(("IP DEL SERVER", PUERTO_SERVER))
 server_socket.listen(1)
 print("Esperando conexión...")
 
@@ -26,6 +27,7 @@ while True:
 
 client_socket.close()
 server_socket.close()
+
 
 
 
