@@ -12,7 +12,7 @@ Un backdoor es un método secreto de eludir la autenticación normal para accede
 ## 🚀 Despliegue y Ejecución
 Para simular el backdoor, necesitarás ejecutar los dos componentes en diferentes terminales.
 
-- **1. Preparacion**: Clona el repositorio en las dos máquinas o en dos ubicaciones separadas en tu máquina local:
+- **1. Preparacion**: Descarga o clona el repositorio en las dos máquinas o en dos ubicaciones separadas en tu máquina local:
   
   ```bash
   git clone https://github.com/ManuelAlonso01/Conexion.git
@@ -26,7 +26,13 @@ Para simular el backdoor, necesitarás ejecutar los dos componentes en diferente
 - **3. Ejecutar el Controlador (Cliente)**: En la máquina que controlará (atacante), ejecuta el cliente (cliente.py). Este intentará conectarse a la IP y puerto donde el servidor está escuchando.
 
   **Nota**: Si ejecutas ambos en la misma máquina, la IP predeterminada 127.0.0.1 con el puerto 5000 u 8000 funcionará. Si usas dos máquinas diferentes, debes editar la IP de ```server.py``` y ```cliente.py```.
-  Si no sabes cual es tu ip puedes visitar https://whatismyipaddress.com/ y colocar la que dice **IPv4** y usar un puerto como el 5000 u 8000.
+  - Si no sabes cual es tu ip puedes ejecutar el comando de **windows**:
+    ```bash
+    ipconfig
+  - o en **linux/macOS**:
+    ```bash
+    ifconfig
+  Busca la dirección IPv4 (ej. ```192.168.1.100```). y usar un puerto como el 5000, 3000 u 8000.
 
 ## 🕹️ Uso
 Una vez que el Controlador (Cliente) se conecte exitosamente a la Puerta Trasera (Servidor), la terminal del cliente se convertirá en una shell de comandos remota.
